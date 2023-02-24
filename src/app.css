@@ -1,17 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Gloock&family=Oswald&display=swap');
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Oswald, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #000000;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+}
+
+@-webkit-keyframes rotating /* Safari and Chrome */ {
+  from {
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotating {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }
 
 a {
@@ -26,14 +57,43 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  place-items: start center;
   min-width: 320px;
   min-height: 100vh;
 }
+body:before {
+  content: "";
+  min-width: 320px;
+  min-height: 100vh;
+  position: fixed;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  z-index: -1;
+  background-image: url(/background.gif);
+  background-position: 42vw 5vh;
+  background-size: 40%;
+  opacity: 78%;
+  transform: rotate(-90deg);
+  background-repeat: repeat;
+  -webkit-animation: rotating 2s linear infinite;
+  -moz-animation: rotating 2s linear infinite;
+  -ms-animation: rotating 2s linear infinite;
+  -o-animation: rotating 2s linear infinite;
+  animation: rotating 1001s linear infinite;
+}
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: Gloock, serif;
+  text-transform: uppercase;
+}
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+}
+a > h1 {
+  color: #FFFFFF;
 }
 
 .card {
@@ -66,15 +126,146 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+.link-list {
+  padding: 0;
+  margin: 0;
+}
+
+.link-list li {
+  list-style-type: none;
+  /*line-height: 5rem;*/
+}
+
+.link-list .link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+  color: rgba(255, 255, 255, 0.87);
+  text-transform: uppercase;
+}
+.link-list .link .icon {
+  width: auto;
+  height: 3rem;
+}
+.link-list .link .text {
+  font-size: 1.3rem;
+  padding: 1.5rem 1rem;
+}
+
+.link-list .link img {
+  max-width: 50%;
+  height: 3rem;
+}
+
+/* STYLE: NEON */
+button.style-neon {
+  /*padding: 25px 30px;*/
+  /*background-color: #050801;*/
+  background-color: transparent;
+  color: #03e9f4;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  letter-spacing: 4px;
+  overflow: hidden;
+  transition: 0.5s;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.link-list .link:hover button.style-neon {
+  background: #03e9f4;
+  color: #050801;
+  box-shadow: 0 0 5px #03e9f4,
+  0 0 25px #03e9f4,
+  0 0 50px #03e9f4,
+  0 0 200px #03e9f4;
+  /*-webkit-box-reflect:below 1px linear-gradient(transparent, #000500);*/
+  z-index: 1000;
+}
+/* EO STYLE: NEON */
+
+img.avatar {
+  width: 32vw;
+  border-radius: 50%;
+  border: 5px solid white;
+}
+
+iframe.deezer-player {
+  border-radius: 10px;
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  img.avatar {
+    width: 24vw;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  img.avatar {
+    width: 15vw;
+  }
+}
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+}
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {
+}
+
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
+    /*color: #213547;*/
+    color: #313f63;
     background-color: #ffffff;
   }
-  a:hover {
-    color: #747bff;
+
+  body:before {
+    content: "";
+    min-width: 100vw;
+    min-height: 100vh;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background-image: url(/background-light.gif);
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform: none;
+    -webkit-animation: none;
+    -moz-animation: none;
+    -ms-animation: none;
+    -o-animation: none;
+    animation: none;
   }
-  button {
-    background-color: #f9f9f9;
+  #app {
+    background: rgba(255,255,255,0.2);
+    padding-bottom: 6rem;
   }
+  a > h1 {
+    color: #313f63;
+  }
+
+  /* STYLE: NEON */
+  button.style-neon {
+    background-color: transparent;
+    color: #313f63;
+  }
+
+  .link-list .link:hover button.style-neon {
+    background-color: #313f63;
+    color: #050801;
+    color: rgb(249,243,224);
+    box-shadow: none;
+    z-index: 1000;
+  }
+  /* EO STYLE: NEON */
 }
