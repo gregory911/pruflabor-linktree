@@ -18,7 +18,6 @@
     { name: 'Bandcamp', url: 'https://pruflaborsonor.bandcamp.com/music', logo: BandcampLogo, action_text: 'Shop' },
     { name: 'YouTube', url: 'https://www.youtube.com/@pruflaborsonor6707', logo: YouTubeLogo, action_text: 'Watch' }
   ];
-  export let location;
 </script>
 
 <main>
@@ -26,7 +25,7 @@
     <ul class="socials">
         {#each socials as socialLink}
             <li>
-                <a href="{socialLink.url}" target="_blank" class="link">
+                <a href="{socialLink.url}" target="_blank" class="link" rel="noreferrer">
                     <img src="{socialLink.icon}" alt="{`Icon for ${socialLink.name}`}" class="icon" />
                 </a>
             </li>
@@ -49,7 +48,7 @@
                         <button class="style-neon">{albumLink.action_text}</button>
                     </a>
                 {:else}
-                    <a href={albumLink.url} target="_blank" class="link">
+                    <a href={albumLink.url} target="_blank" class="link" rel="noreferrer">
                         {#if (albumLink.icon)}
                             <img src="{albumLink.icon}" alt="{`Icon for ${albumLink.name}`}" class="icon" />
                         {/if}
@@ -79,7 +78,7 @@
                         <button class="style-neon">{accountLink.action_text}</button>
                     </a>
                 {:else}
-                    <a href={accountLink.url} target="_blank" class="link">
+                    <a href={accountLink.url} target="_blank" class="link" rel="noreferrer">
                         {#if (accountLink.icon)}
                             <img src="{accountLink.icon}" alt="{`Icon for ${accountLink.name}`}" class="icon" />
                         {/if}

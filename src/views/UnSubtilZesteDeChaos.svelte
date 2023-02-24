@@ -13,7 +13,6 @@
     { name: 'Amazon Music', url: 'https://music.amazon.ca/albums/B09RQ9WJ6B', logo: AmazonMusicLogo },
     { name: 'Tidal', url: 'https://tidal.com/browse/album/215058030', logo: TidalLogo }
   ];
-  export let location;
 </script>
 
 <main>
@@ -22,7 +21,7 @@
     <ul class="link-list">
         {#each links as link}
             <li>
-                <a href={link.url} target="_blank" class="link">
+                <a href={link.url} target="_blank" class="link" rel="noreferrer">
                     <img src={link.logo} alt={`Logo for ${link.name}`} />
                     <button class="style-neon">Play</button>
                 </a>
