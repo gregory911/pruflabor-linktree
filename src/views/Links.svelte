@@ -16,7 +16,7 @@
   ];
   const accountLinks = [
     { name: 'Bandcamp', url: 'https://pruflaborsonor.bandcamp.com/music', logo: BandcampLogo, action_text: 'Shop' },
-    { name: 'YouTube', url: 'https://www.youtube.com/@pruflaborsonor6707', logo: YouTubeLogo, action_text: 'Watch' }
+    { name: 'YouTube', url: 'https://www.youtube.com/@pruflabor', logo: YouTubeLogo, action_text: 'Watch' }
   ];
 </script>
 
