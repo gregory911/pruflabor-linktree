@@ -1,20 +1,32 @@
 <script lang="ts">
   import { link } from "svelte-routing";
-  import profileImage from '../assets/profile.jpg'
+  import profileImage from '../assets/pruflaborsonor.jpg'
   import FacebookIcon from '../assets/f_logo_RGB-Blue_1024.svg';
   import InstagramIcon from '../assets/instagram-colourful-icon.png';
-  import YouTubeLogo from '../assets/yt_logo_rgb_dark.svg'
-  import BandcampLogo from '../assets/bandcamp-logotype-light.svg'
-  const socials = [
+  import YouTubeLogo from '../assets/yt_logo_rgb_dark.svg';
+  import BandcampLogo from '../assets/bandcamp-logotype-light.svg';
+  import type {
+    Link,
+    LinkInternal
+  } from "../lib/Types";
+
+  interface AccountLink extends Link {
+    action_text: string,
+  }
+  interface AlbumLink extends LinkInternal, AccountLink {
+    id: string,
+  }
+
+  const socials: Array<Link> = [
     { name: 'Facebook', url: 'https://www.facebook.com/pruflaborsonor/', icon: FacebookIcon},
     { name: 'Instagram', url: 'https://www.instagram.com/pruflaborsonor/', icon: InstagramIcon},
   ];
-  const latestAlbums = [
+  const latestAlbums: Array<AlbumLink> = [
     { name: 'Rude Oof Clairons', url: '/rude-oof-clairons', action_text: 'Listen', internal: true, id: 'rudeOofClairons'},
     { name: 'Harmonie', url: '/harmonie', action_text: 'Listen', internal: true, id: 'harmonie'},
     { name: 'Un Subtil Zeste de Chaos', url: '/un-subtil-zeste-de-chaos', action_text: 'Listen', internal: true, id: 'zesteChaos'}
   ];
-  const accountLinks = [
+  const accountLinks: Array<AccountLink> = [
     { name: 'Bandcamp', url: 'https://pruflaborsonor.bandcamp.com/music', logo: BandcampLogo, action_text: 'Shop' },
     { name: 'YouTube', url: 'https://www.youtube.com/@pruflabor', logo: YouTubeLogo, action_text: 'Watch' }
   ];
